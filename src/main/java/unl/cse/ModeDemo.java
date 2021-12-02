@@ -21,8 +21,17 @@ public class ModeDemo {
 	 */
 	public static Map<Integer, Integer> computeMultiplicities(List<Integer> list) {
 		Map<Integer, Integer> counts = new HashMap<Integer, Integer>();
-		//TODO: iterate over list and use counts to compute 
-		//      the multiplicity of each number x in list
+		for (int i = 0;i<list.size();i++)
+		{
+			if (counts.get(list.get(i)) == null)
+			{
+				counts.put(list.get(i), 1);
+			}
+			else
+			{
+				counts.put(list.get(i),counts.get(list.get(i))+1);
+			}
+		}
 		return counts;
 	}
 	
@@ -34,9 +43,22 @@ public class ModeDemo {
 	 */
 	public static Set<Integer> findModes(Map<Integer, Integer> m) {
 		Set<Integer> result = new HashSet<Integer>();
-		//TODO: find the mode(s); that is, the (key) element(s) with the 
-		//      largest value, and return it.
-		//      The mode may not be unique, thus this method should return a set of modes
+		int high = 0;
+		
+		for (Map.Entry<Integer, Integer> num : m.entrySet())
+		{
+			if (num.getValue() > high)
+			{
+				high = num.getValue();
+				result.clear();
+				result.add(num.getKey());
+			}
+			else if (num.getValue() == high)
+			{
+				result.add(num.getKey());
+			}
+		}
+		
 		return result;
 	}
 	

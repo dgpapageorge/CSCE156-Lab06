@@ -14,9 +14,38 @@ public class MomentUtils {
 	 * @return
 	 */
 	public static double moment(List<Double> values, double alpha, int k) {
-		return 0.0;
+		double num = 0;
+		for (double x = 0;x<values.size();x++)
+		{
+			num+=Math.pow((values.get((int)x)-alpha),k);
+		}
+		return num/values.size();
 	}
 	
+	public static double moment(List<Double> values, double alpha) {
+		double num = 0;
+		for (double x = 0;x<values.size();x++)
+		{
+			num+=(values.get((int)x)-alpha);
+		}
+		return num/values.size();
+	}
+	public static double moment(List<Double> values, int k) {
+		double num = 0;
+		for (double x = 0;x<values.size();x++)
+		{
+			num+=Math.pow(values.get((int)x),k);
+		}
+		return num/values.size();
+	}
+	public static double moment(List<Double> values) {
+		double num = 0;
+		for (double x = 0;x<values.size();x++)
+		{
+			num+=(values.get((int)x));
+		}
+		return num/values.size();
+	}
 	public static void main(String args[]) {
 		
 		List<Double> numbers = Arrays.asList(-6.190000e-1, -1.042570e+0, -2.633440e-1, 
@@ -26,6 +55,7 @@ public class MomentUtils {
 		
 		//Example: double x = moment(numbers, 1, 2);
 		//System.out.println(x);
+		System.out.println(moment(numbers,1,2));
 	}
 	
 }

@@ -7,7 +7,7 @@ import java.util.List;
  * Models an individual course.
  *
  */
-public class Course {
+public class Course <T extends Student> {
 
 	private final String department;
 	private final String number;
@@ -19,7 +19,7 @@ public class Course {
 		this.courseRoster = new ArrayList();
 	}
 	
-	public void addSection(Section section) {
+	public void addSection(Section<T> section) {
 		this.courseRoster.add(section);
 	}
 	

@@ -18,8 +18,21 @@ public class CourseDemo {
 		Droid r2d2 = new Droid("R2D2", "Astromech");
 		
 
-		Course c = new Course("CSCE", "156");		
-		//TODO: add sections to this course as you create them
+		Course<Undergraduate> c = new Course<Undergraduate>("CSCE", "156");		
+		
+		Section<Undergraduate> under = new Section<Undergraduate>("1324");
+		Section<Graduate> grad = new Section<Graduate>("9812");
+		
+		under.enroll(luke);
+		under.enroll(wedge);
+		grad.enroll(ben);
+		grad.enroll(mace);
+		under.enroll(mace);
+		under.enroll(c3po);
+		grad.enroll(luke);
+		
+		c.addSection(under);
+		c.addSection(grad);
 		
 		System.out.println(c);
 		

@@ -9,17 +9,17 @@ import java.util.List;
  * must be the same type.
  *
  */
-public class Section {
+public class Section <T extends Student>{
 	
 	private final String sectionNumber;
 	private final List sectionRoster;
 	
 	public Section(String sectionNumber) {
 		this.sectionNumber = sectionNumber;
-		this.sectionRoster = new ArrayList();
+		this.sectionRoster = new ArrayList<>();
 	}
 	
-	public void enroll(Object t) {
+	public void enroll (T t) {
 		this.sectionRoster.add(t);
 	}
 
